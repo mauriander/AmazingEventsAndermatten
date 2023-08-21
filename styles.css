@@ -1,0 +1,41 @@
+ /* *{
+    border-color: red;
+        border-width: 1px;
+        border-style:dashed;
+}  */
+body{
+    background-color:lightsteelblue;
+}
+footer{
+    background-color: cadetblue;
+}
+.carousel-item{
+    max-height: 70vh;
+}
+
+.card{
+    background-color: lightblue;
+}
+.card:hover {
+    background-color: rgb(255, 255, 255);
+}
+footer{
+    
+    margin-top:9vh;
+    
+}
+.headerTable {
+    background-color: gray;
+}
+
+table,
+td,
+th {
+
+    border: 1px solid rgb(0, 0, 0) !important;
+    border-collapse: collapse;
+    padding: 3px;
+    text-align: left;
+    text-align: center;
+
+}
