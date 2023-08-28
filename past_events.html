@@ -45,7 +45,7 @@
                   >
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="./past_events.html">Past Events</a>
+                  <a class="nav-link" href="#">Past Events</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="./contact.html">Contact</a>
@@ -218,74 +218,8 @@
       <!-- // cards -->
       <!-- 1 para celular ; 2 para tablets o medias pantallas y 4 para pantallas grandes -->
       <!-- p de padding [0-5] elegimos 3 -->
-      <div
-        class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 p-3 m-0 d-flex justify-content-center"
-      >
-        <div class="col d-flex justify-content-center">
-          <div class="card" style="width: 18rem">
-            <img src="./img/food_fair.jpg" class="card-img-top" alt="..." />
-            <div class="card-body">
-              <h5 class="card-title">Festival of the collectivities</h5>
-              <p class="card-text">
-                Enjoy your favorite dishes from different countries in a unique
-                event for the whole family.
-              </p>
-            </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">Price: 5</li>
-              <li class="list-group-item">Date: 2022-12-12</li>
-            </ul>
-            <div class="card-body">
-              <a href="./details.html#food_faird" class="card-link">Details</a>
-            </div>
-          </div>
-        </div>
 
-        <div class="col d-flex justify-content-center">
-          <div class="card" style="width: 18rem">
-            <img
-              src="./img/outing_to_the_museum.jpg"
-              class="card-img-top"
-              alt="..."
-            />
-            <div class="card-body">
-              <h5 class="card-title">Art Exhibition</h5>
-              <p class="card-text">
-                Let's go to the art museum for an incredible tour to learn about
-                the largest dinosaurs.
-              </p>
-            </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">Price: 15</li>
-              <li class="list-group-item">Date: 2022-11-02</li>
-            </ul>
-            <div class="card-body">
-              <a href="./details.html#outingd" class="card-link">Details</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col d-flex justify-content-center">
-          <div class="card" style="width: 18rem">
-            <img src="./img/books.jpg" class="card-img-top" alt="..." />
-            <div class="card-body">
-              <h5 class="card-title">School book fair</h5>
-              <p class="card-text">
-                Bring your unused school book and bring the one you need
-              </p>
-            </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">Price: 1</li>
-              <li class="list-group-item">Date: 2022-10-15</li>
-            </ul>
-            <div class="card-body">
-              <a href="./details.html#booksd" class="card-link">Details</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- //d-flex justify-content-center centramos en el medio -->
-      </div>
+      <div id="cardSection" class="card-section d-flex"></div>
     </main>
 
     <footer>
@@ -313,4 +247,6 @@
     integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
     crossorigin="anonymous"
   ></script>
+  <script src="./data.js"></script>
+  <script src="./past.js"></script>
 </html>

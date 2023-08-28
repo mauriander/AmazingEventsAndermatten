@@ -40,9 +40,7 @@
                   <a class="nav-link" href="./index.html">Home</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="./upcoming_events.html"
-                    >Upcoming Events</a
-                  >
+                  <a class="nav-link" href="#">Upcoming Events</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="./past_events.html">Past Events</a>
@@ -218,91 +216,8 @@
       <!-- // cards -->
       <!-- 1 para celular ; 2 para tablets o medias pantallas y 4 para pantallas grandes -->
       <!-- p de padding [0-5] elegimos 3 -->
-      <div
-        class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 p-3 m-0 d-flex justify-content-center"
-      >
-        <div class="col d-flex justify-content-center">
-          <div class="card" style="width: 18rem">
-            <img src="./img/costume_party.jpg" class="card-img-top" alt="..." />
-            <div class="card-body">
-              <h5 class="card-title">Halloween Night</h5>
-              <p class="card-text">
-                Come in your scariest costume character to win amazing prizes
-              </p>
-            </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">Price: 12</li>
-              <li class="list-group-item">Date: 2024-02-12</li>
-            </ul>
-            <div class="card-body">
-              <a href="./details.html#costume_partyd" class="card-link"
-                >Details</a
-              >
-            </div>
-          </div>
-        </div>
 
-        <div class="col d-flex justify-content-center">
-          <div class="card" style="width: 18rem">
-            <img src="./img/music_concert.jpg" class="card-img-top" alt="..." />
-            <div class="card-body">
-              <h5 class="card-title">Metallica in Concert</h5>
-              <p class="card-text">
-                The only concert of the most emblematic band in the world
-              </p>
-            </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">Price: 150</li>
-              <li class="list-group-item">Date: 2024-01-22</li>
-            </ul>
-            <div class="card-body">
-              <a href="./details.html#music_concertd" class="card-link"
-                >Details</a
-              >
-            </div>
-          </div>
-        </div>
-
-        <div class="col d-flex justify-content-center">
-          <div class="card" style="width: 18rem">
-            <img src="./img/marathon.jpg" class="card-img-top" alt="..." />
-            <div class="card-body">
-              <h5 class="card-title">10k for life</h5>
-              <p class="card-text">
-                Come and exercise, improve your health and lifestyle.
-              </p>
-            </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">Price: 3</li>
-              <li class="list-group-item">Date: 2024-03-01</li>
-            </ul>
-            <div class="card-body">
-              <a href="./details.html#marathond" class="card-link">Details</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col d-flex justify-content-center">
-          <div class="card" style="width: 18rem">
-            <img src="./img/cinema.jpg" class="card-img-top" alt="..." />
-            <div class="card-body">
-              <h5 class="card-title">Avengers</h5>
-              <p class="card-text">
-                Marvel's Avengers 3d premiere the start of an epic saga with
-                your best superheroes
-              </p>
-            </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">Price: 250</li>
-              <li class="list-group-item">Date: 2023-10-15</li>
-            </ul>
-            <div class="card-body">
-              <a href="./details.html#cinemad" class="card-link">Details</a>
-            </div>
-          </div>
-        </div>
-        <!-- //d-flex justify-content-center centramos en el medio -->
-      </div>
+      <div id="cardSection" class="card-section d-flex"></div>
     </main>
 
     <footer>
@@ -330,4 +245,6 @@
     integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
     crossorigin="anonymous"
   ></script>
+  <script src="./data.js"></script>
+  <script src="./upcoming.js"></script>
 </html>
