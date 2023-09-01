@@ -25,7 +25,7 @@ function filterSearch(list, texto) {
 
 function showCards(list) {
   if (list.length == 0) {
-    cardSection.innerHTML = `<h2 class="text-white">No results found</h2>`;
+    cardSection.innerHTML = `<h2 class="text-white">No results available</h2>`;
     return;
   }
   let cards = "";
@@ -45,9 +45,7 @@ function showCards(list) {
   });
   cardSection.innerHTML = cards;
 }
-function finalFilter(list) {
-  showCards(filterSearch(list, searchInput.value));
-}
+
 //Muestras todos los eventos
 showCards(data.events);
 
@@ -67,7 +65,7 @@ let checkboxSection = document.getElementById("checkboxSection");
 function categoriesList(list) {
   let categories = [];
   list.events.forEach((element) => {
-    categories.push(element.category.toLowerCase());
+    categories.push(element.category.toUpperCase());
   });
   categories = Array.from(new Set(categories));
   categories.sort();
@@ -78,12 +76,43 @@ function showCheckbox(list){
   let checkboxes = "";
   list.forEach((category) => { //reemplazar data por list
     checkboxes += 
-    `<p><input type="checkbox" id="${category}" name="position1" value="${category}">
-    <label for="${category}">${category}</label>
+    `<p><input type="checkbox" class="col-md-auto" id="${category}"  value="${category}">
+    <label for="${category}">${category} &nbsp&nbsp </label>
     </p>`
   });
+  //nbsp no es buena practica pero quedo como resolucion provisoria
   checkboxSection.innerHTML = checkboxes;
 }
 
-
+//muestro las categoria
 showCheckbox(categoriesList(data));
+
+///filtro by checkbox le paso una lista, la recorro
+
+function filterByCheckbox(list){
+  let checkbox = document.querySelectorAll("input[type='checkbox']");
+  let checkboxlist = Array.from(checkbox);
+  let checkSelected = checkboxlist.filter((check) => check.checked);
+  if (checkSelected.length == 0) {
+      return list;
+  }
+  let categories = checkSelected.map((check) => check.value.toUpperCase());
+  let filteredList = list.filter((element) => categories.includes(element.category.toUpperCase()));
+  return filteredList;
+}
+//////filtro final
+function finalFilter(list) {
+  //llamo al filto1
+  // let filro1=showCards(filterSearch(list, searchInput.value));
+// siempmre trabajo con arrays, asi que a un array lo filto y al array restante lo vuelvo a filtra
+let filtrob=filterSearch(list, searchInput.value);
+let filtroc=filterByCheckbox(filtrob);
+showCards(filtroc);
+
+}
+
+
+//aGREGO ESTA LINEA PORQUE NO FILTRABA AL CLICKEAR
+checkboxSection.addEventListener('change', () => {
+    finalFilter(data.events);
+});
