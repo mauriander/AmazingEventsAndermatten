@@ -10,7 +10,7 @@ footer{
     background-color: cadetblue;
 }
 .carousel-item{
-    max-height: 70vh;
+    max-height: 50vh;
 }
 
 .card:hover {
