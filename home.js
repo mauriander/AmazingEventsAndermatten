@@ -1,19 +1,38 @@
-//  for(let evento of data.events) {
-//         let card = `<div class="card card-index">
-//         <img src=${evento.image} class="card-img-top" alt=""/>
-//           <div class="card-body">
-//             <h5 class="card-title text-center">${evento.name}</h5>
-//             <h6 class="card-date text-center">${evento.date}</h6>
-//             <p class="card-text text-center">${evento.description}</p>
-//           </div>
-//           <div class="footer-card d-flex">
-//             <P>Precio $${evento.price}</P>
-//             <a href="./details.html" class="btn btn-see-more">Ver mas...</a>
-//           </div>
-//         </div>`
-//         cardSection.innerHTML += card
-//     }
 let searchInput = document.getElementById("searchInput");
+
+const url = "https://mindhub-xj03.onrender.com/api/amazing";
+
+async function obtenerDatos() {
+  await fetch(url)
+    .then((response) => response.json())
+    .then((lista) => {
+      //showcards
+       showCards(lista.events);
+       //showfilters
+       showCheckbox(categoriesList(lista));
+       //Search
+searchInput.addEventListener("input", () => {
+  finalFilter(data.events);
+});
+  //Multiples check
+       checkboxSection.addEventListener("change", () => {
+  finalFilter(lista.events);
+});
+  
+    });
+
+}
+
+obtenerDatos();
+
+
+// datalist=fetch(url)
+//  .then(response => response.json())
+//  .then(lista => {
+//                /// console.log(lista);
+//               return lista
+//               });
+
 
 function filterSearch(list, texto) {
   //Necesito que devuelva un return para trabajar con esa info
@@ -47,19 +66,19 @@ function showCards(list) {
 }
 
 //Muestras todos los eventos
-showCards(data.events);
 
-//Search
-searchInput.addEventListener("input", () => {
-  finalFilter(data.events);
-});
+//showCards(data.events);
+
+// //Search
+// searchInput.addEventListener("input", () => {
+//   finalFilter(data.events);
+// });
 
 /////////////////////////////////
 ///////////////check BaseAudioContext
 //////////
 
 let checkboxSection = document.getElementById("checkboxSection");
-
 
 //Creo la lista de las categorias que luego seran checkbox
 function categoriesList(list) {
@@ -72,47 +91,48 @@ function categoriesList(list) {
   return categories;
 }
 
-function showCheckbox(list){
+function showCheckbox(list) {
   let checkboxes = "";
-  list.forEach((category) => { //reemplazar data por list
-    checkboxes += 
-    `<p><input type="checkbox" class="col-md-auto" id="${category}"  value="${category}">
+  list.forEach((category) => {
+    //reemplazar data por list
+    checkboxes += `<p><input type="checkbox" class="col-md-auto" id="${category}"  value="${category}">
     <label for="${category}">${category} &nbsp&nbsp </label>
-    </p>`
+    </p>`;
   });
   //nbsp no es buena practica pero quedo como resolucion provisoria
   checkboxSection.innerHTML = checkboxes;
 }
 
 //muestro las categoria
-showCheckbox(categoriesList(data));
+
+//showCheckbox(categoriesList(data));
 
 ///filtro by checkbox le paso una lista, la recorro
 
-function filterByCheckbox(list){
+function filterByCheckbox(list) {
   let checkbox = document.querySelectorAll("input[type='checkbox']");
   let checkboxlist = Array.from(checkbox);
   let checkSelected = checkboxlist.filter((check) => check.checked);
   if (checkSelected.length == 0) {
-      return list;
+    return list;
   }
   let categories = checkSelected.map((check) => check.value.toUpperCase());
-  let filteredList = list.filter((element) => categories.includes(element.category.toUpperCase()));
+  let filteredList = list.filter((element) =>
+    categories.includes(element.category.toUpperCase())
+  );
   return filteredList;
 }
 //////filtro final
 function finalFilter(list) {
   //llamo al filto1
   // let filro1=showCards(filterSearch(list, searchInput.value));
-// siempmre trabajo con arrays, asi que a un array lo filto y al array restante lo vuelvo a filtra
-let filtrob=filterSearch(list, searchInput.value);
-let filtroc=filterByCheckbox(filtrob);
-showCards(filtroc);
-
+  // siempmre trabajo con arrays, asi que a un array lo filto y al array restante lo vuelvo a filtra
+  let filtrob = filterSearch(list, searchInput.value);
+  let filtroc = filterByCheckbox(filtrob);
+  showCards(filtroc);
 }
 
-
 //aGREGO ESTA LINEA PORQUE NO FILTRABA AL CLICKEAR
-checkboxSection.addEventListener('change', () => {
-    finalFilter(data.events);
-});
+// checkboxSection.addEventListener("change", () => {
+//   finalFilter(data.events);
+// });
