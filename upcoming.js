@@ -6,6 +6,36 @@ function upcomingE(list){
 
 let searchInput = document.getElementById("searchInput");
 
+
+const url = "https://mindhub-xj03.onrender.com/api/amazing";
+
+async function obtenerDatos() {
+  await fetch(url)
+    .then((response) => response.json())
+    .then((lista) => {
+      //showcards
+  showCards(upcomingE(lista));
+       //showfilters
+       showCheckbox(categoriesList(upcomingE(lista)));
+       //Search
+searchInput.addEventListener("input", () => {
+  finalFilter(upcomingE(lista));
+});
+  //Multiples check
+       checkboxSection.addEventListener("change", () => {
+  finalFilter(upcomingE(lista));
+});
+
+  
+    });
+
+}
+
+obtenerDatos();
+
+
+
+
 function filterSearch(list, texto) {
   //Necesito que devuelva un return para trabajar con esa info
   let filteredArray = list.filter((element) =>

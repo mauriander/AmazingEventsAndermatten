@@ -13,36 +13,31 @@ function filterSearch(list, texto) {
   );
   return filteredArray;
 }
+const url = "https://mindhub-xj03.onrender.com/api/amazing";
 
-// let listapast=[];
-// function showCardsp(list) {
-//   if (list.length == 0) {
-//     cardSection.innerHTML = `<h2 class="text-white">No results available</h2>`;
-//     return;
-//   }
+async function obtenerDatos() {
+  await fetch(url)
+    .then((response) => response.json())
+    .then((lista) => {
+      //showcards
+  showCards(pastE(lista));
+       //showfilters
+       showCheckbox(categoriesList(pastE(lista)));
+       //Search
+searchInput.addEventListener("input", () => {
+  finalFilter(pastE(lista));
+});
+  //Multiples check
+       checkboxSection.addEventListener("change", () => {
+  finalFilter(pastE(lista));
+});
+
   
-//   list.forEach((element) => {
-//     console.log(element.date+'<'+data.currentDate);
-//     //alert(element.date+'<'+list.currentDate);
-//      if (element.date < data.currentDate) {
-//           let card = `<div class="card card-index">
-//              <img src=${element.image} class="card-img-top" alt=""/>
-//              <div class="card-body">
-//                 <h5 class="card-title text-center">${element.name}</h5>
-//                  <h6 class="card-date text-center">${element.date}</h6>
-//                  <p class="card-text text-center">${element.description}</p>
-//                </div>
-//               <div class="footer-card d-flex">
-//                 <P>Precio $${element.price}</P>
-//                  <a href="./details.html" class="btn btn-see-more">Ver mas...</a>
-//                </div>
-//              </div>`
-//           cardSection.innerHTML += card;
-//           listapast.push(element);
-//         }
-//   });
-  
-// }
+    });
+
+}
+
+obtenerDatos();
 
 function showCards(list) {
   if (list.length == 0) {
@@ -67,10 +62,9 @@ function showCards(list) {
   cardSection.innerHTML = cards;
 }
 
-let listpaste=[];
-listpaste=pastE(data)
+
 //Muestras todos los eventos
-showCards(pastE(data));
+//showCards(pastE(data));
 
 //Search
 searchInput.addEventListener("input", () => {
@@ -108,7 +102,7 @@ function showCheckbox(list){
 }
 
 //muestro las categoria
-showCheckbox(categoriesList(pastE(data)));
+//showCheckbox(categoriesList(pastE(data)));
 
 ///filtro by checkbox le paso una lista, la recorro
 
@@ -136,6 +130,6 @@ showCards(filtroc);
 
 
 //aGREGO ESTA LINEA PORQUE NO FILTRABA AL CLICKEAR
-checkboxSection.addEventListener('change', () => {
-    finalFilter(pastE(data));
-});
+// checkboxSection.addEventListener('change', () => {
+//     finalFilter(pastE(data));
+// });
