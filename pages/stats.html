@@ -3,9 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Past Events - Amazing Events</title>
+    <title>STATS - Amazing Events</title>
     <!-- favicon -->
-    <link rel="icon" type="image/x-icon" href="./img/amazing_brand.png" />
+    <link rel="icon" type="image/x-icon" href="../img/amazing_brand.png" />
     <!-- bootstrap -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
@@ -13,14 +13,14 @@
       integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" type="text/css" href="./styles.css" />
+    <link rel="stylesheet" type="text/css" href="../css/styles.css" />
   </head>
   <body>
     <header>
       <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-          <a class="navbar-brand" href="./index.html"
-            ><img src="./img/amazing_brand.png" width="150px"
+          <a class="navbar-brand" href="../index.html"
+            ><img src="../img/amazing_brand.png" width="150px"
           /></a>
           <button
             class="navbar-toggler"
@@ -37,25 +37,27 @@
             <div class="collapse navbar-collapse" id="navbarNav">
               <ul class="navbar-nav">
                 <li class="nav-item">
-                  <a class="nav-link" href="./index.html">Home</a>
+                  <a class="nav-link" href="../index.html">Home</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="./upcoming_events.html"
+                  <a class="nav-link" href="../pages/upcoming_events.html"
                     >Upcoming Events</a
                   >
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Past Events</a>
+                  <a class="nav-link" href="../pages/past_events.html"
+                    >Past Events</a
+                  >
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="./contact.html">Contact</a>
+                  <a class="nav-link" href="../pages/contact.html">Contact</a>
                 </li>
                 <!-- <li class="nav-item">
-                  <a class="nav-link" href="./details.html">Details</a>
+                  <a class="nav-link" href="../pages/details.html">Details</a>
                 </li> -->
 
                 <li class="nav-item">
-                  <a class="nav-link" href="./stats.html">Stats</a>
+                  <a class="nav-link" href="#">Stats</a>
                 </li>
               </ul>
             </div>
@@ -73,52 +75,52 @@
         <div class="carousel-inner">
           <div class="carousel-item active">
             <img
-              src="./img/optional_banner_1.jpg"
+              src="../img/optional_banner_1.jpg"
               class="d-block w-100"
               alt=""
             />
             <div class="carousel-caption d-block">
-              <h1>PAST EVENTS</h1>
+              <h1>STATS</h1>
             </div>
           </div>
           <div class="carousel-item">
             <img
-              src="./img/optional_banner_2.jpg"
+              src="../img/optional_banner_2.jpg"
               class="d-block w-100"
               alt=""
             />
             <div class="carousel-caption d-block">
-              <h1>PAST EVENTS</h1>
+              <h1>STATS</h1>
             </div>
           </div>
           <div class="carousel-item">
             <img
-              src="./img/optional_banner_3.jpg"
+              src="../img/optional_banner_3.jpg"
               class="d-block w-100"
               alt=""
             />
             <div class="carousel-caption d-block">
-              <h1>PAST EVENTS</h1>
+              <h1>STATS</h1>
             </div>
           </div>
           <div class="carousel-item">
             <img
-              src="./img/optional_banner_4.jpg"
+              src="../img/optional_banner_4.jpg"
               class="d-block w-100"
               alt=""
             />
             <div class="carousel-caption d-block">
-              <h1>PAST EVENTS</h1>
+              <h1>STATS</h1>
             </div>
           </div>
           <div class="carousel-item">
             <img
-              src="./img/optional_banner_5.jpg"
+              src="../img/optional_banner_5.jpg"
               class="d-block w-100"
               alt=""
             />
             <div class="carousel-caption d-block">
-              <h1>PAST EVENTS</h1>
+              <h1>STATS</h1>
             </div>
           </div>
         </div>
@@ -142,49 +144,92 @@
         </button>
       </div>
 
-      <!-- barra de busqueda -->
-      <!-- //check input -->
-      <div class="container-fluid py-5">
-        <div class="d-flex flex-wrap" style="color: purple; font-weight: bold">
-          <div
-            type="checkbox"
-            id="checkboxSection"
-            class="d-flex flex-wrap"
-          ></div>
-          <!-- //boton busqyeda -->
-          <form class="d-flex ms-auto align-items-center mt-12 mt-6 mt-3">
-            <i class="fa fa-search">&nbsp;</i>
-            <input
-              class="form-control me-2"
-              type="search"
-              id="searchInput"
-              aria-label="Search"
-              placeholder="Search"
-            />
-            <!-- clear borra los filtros al llamar a submit sin ninguna funcion -->
-            <!-- <button class="btn btn-danger" type="submit">Clear</button> -->
-          </form>
-        </div>
-      </div>
-      <!-- debemos seguir column -> row  celular // tablet// pc -->
-      <!-- // cards -->
-      <!-- 1 para celular ; 2 para tablets o medias pantallas y 4 para pantallas grandes -->
-      <!-- p de padding [0-5] elegimos 3 -->
+      <div class="container d-flex p-5 justify-content-center W-100">
+        <table>
+          <tr>
+            <th class="headerTable" colspan="3">Event Statics</th>
+          </tr>
 
-      <div id="cardSection" class="card-section d-flex"></div>
+          <tr>
+            <th>Event with highest % of assistance</th>
+            <th>Event with lowest % of assistance</th>
+            <th>Event with larger capacity</th>
+          </tr>
+          <tbody>
+            <tr>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+            </tr>
+          </tbody>
+
+          <tr>
+            <th class="headerTable" colspan="3">Upcoming Event Statics</th>
+          </tr>
+
+          <tr>
+            <th>Categories</th>
+            <th>Revenues</th>
+            <th>Percentage of assistance</th>
+          </tr>
+
+          <tbody>
+            <tr>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+            </tr>
+          </tbody>
+
+          <tr>
+            <th class="headerTable" colspan="3">
+              Past events statistics by category
+            </th>
+          </tr>
+
+          <tr>
+            <th>Categories</th>
+            <th>Revenues</th>
+            <th>Percentage of assistance</th>
+          </tr>
+
+          <tbody>
+            <tr>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </main>
 
     <footer>
       <div class="row m-0">
         <div class="col-6 p-2 m-0">
           <a class="aredsocial" href=""
-            ><img src="./img/instagram.png" width="32px" height="32px"
+            ><img src="../img/instagram.png" width="32px" height="32px"
           /></a>
           <a class="aredsocial" href=""
-            ><img src="./img/facebook.png" width="32px" height="32px"
+            ><img src="../img/facebook.png" width="32px" height="32px"
           /></a>
           <a class="aredsocial" href=""
-            ><img src="./img/whatsapp.png" width="32px" height="32px"
+            ><img src="../img/whatsapp.png" width="32px" height="32px"
           /></a>
         </div>
         <div class="col-6 p-2 m-0">
@@ -199,6 +244,4 @@
     integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
     crossorigin="anonymous"
   ></script>
-
-  <script src="./past.js"></script>
 </html>
