@@ -67,9 +67,9 @@ function showCards(list) {
 //showCards(pastE(data));
 
 //Search
-searchInput.addEventListener("input", () => {
-  finalFilter(pastE(data));
-});
+// searchInput.addEventListener("input", () => {
+//   finalFilter(pastE(data));
+// });
 
 /////////////////////////////////
 ///////////////check BaseAudioContext

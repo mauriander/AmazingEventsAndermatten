@@ -1,68 +1,76 @@
- /* *{
+/* *{
     border-color: red;
         border-width: 1px;
         border-style:dashed;
 }  */
-body{
-    background-color:lightsteelblue;
+body {
+  width: 100%;
+  height: 100vh;
+  background-color: lightsteelblue;
 }
-footer{
-    background-color: rgb(119, 153, 197);
+
+header {
+  min-height: 12vh;
 }
-.carousel-item{
-    max-height: 50vh;
+.navbar {
+  min-height: 12vh;
+}
+footer {
+  background-color: rgb(119, 153, 197);
+
+  margin-top: 8vh;
+}
+main {
+  min-height: 76vh;
+}
+
+.carousel-item {
+  max-height: 50vh;
 }
 
 .card:hover {
-   opacity: 0.7;
+  opacity: 0.7;
 }
 
-
 .card-section {
-    margin: 2.5rem 3rem;
-    justify-content: space-around;
-    flex-wrap: wrap;
+  margin: 2.5rem 3rem;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
 
 .card-index {
-    width: 18rem;
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
+  width: 18rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .card-img-top {
-    height: 50%;
-    object-fit: cover;
+  height: 50%;
+  object-fit: cover;
 }
 
 .footer-card {
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 0.5rem;
 }
 
 .btn-see-more,
 .btn-submit {
-    background-color: #d90368;
-    color: #fff;
+  background-color: #d90368;
+  color: #fff;
 }
-footer{
-    
-    margin-top:9vh;
-    
-}
+
 .headerTable {
-    background-color: gray;
+  background-color: gray;
 }
 
 table,
 td,
 th {
-
-    border: 1px solid rgb(0, 0, 0) !important;
-    border-collapse: collapse;
-    padding: 3px;
-    text-align: left;
-    text-align: center;
-
+  border: 1px solid rgb(0, 0, 0) !important;
+  border-collapse: collapse;
+  padding: 3px;
+  text-align: left;
+  text-align: center;
 }

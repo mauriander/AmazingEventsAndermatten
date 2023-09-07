@@ -12,7 +12,7 @@ async function obtenerDatos() {
        showCheckbox(categoriesList(lista));
        //Search
 searchInput.addEventListener("input", () => {
-  finalFilter(data.events);
+  finalFilter(lista.events);
 });
   //Multiples check
        checkboxSection.addEventListener("change", () => {

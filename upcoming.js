@@ -68,15 +68,15 @@ function showCards(list) {
   cardSection.innerHTML = cards;
 }
 
-let listupcomingE=[];
-listupcomingE=upcomingE(data)
-//Muestras todos los eventos
-showCards(upcomingE(data));
+// let listupcomingE=[];
+// listupcomingE=upcomingE(data)
+// //Muestras todos los eventos
+// showCards(upcomingE(data));
 
 //Search
-searchInput.addEventListener("input", () => {
-  finalFilter(upcomingE(data));
-});
+// searchInput.addEventListener("input", () => {
+//   finalFilter(upcomingE(data));
+// });
 
 /////////////////////////////////
 ///////////////check BaseAudioContext
@@ -109,7 +109,7 @@ function showCheckbox(list){
 }
 
 //muestro las categoria
-showCheckbox(categoriesList(upcomingE(data)));
+// showCheckbox(categoriesList(upcomingE(data)));
 
 ///filtro by checkbox le paso una lista, la recorro
 
@@ -137,6 +137,6 @@ showCards(filtroc);
 
 
 //aGREGO ESTA LINEA PORQUE NO FILTRABA AL CLICKEAR
-checkboxSection.addEventListener('change', () => {
-    finalFilter(upcomingE(data));
-});
+// checkboxSection.addEventListener('change', () => {
+//     finalFilter(upcomingE(data));
+// });

@@ -36,6 +36,23 @@ evento.assistance="-";
 const params = new URLSearchParams(window.location.search);
 const eventoId = params.get('id');
 //inserto en evento, como estoy seguro, porque si o si se va mostar
-const evento = data.events.find(evento => evento._id == eventoId);
+//const evento = data.events.find(evento => evento._id == eventoId);
 
-showCardDetails(evento);
+const url = "https://mindhub-xj03.onrender.com/api/amazing";
+async function obtenerDatos() {
+  await fetch(url)
+    .then((response) => response.json())
+    .then((lista) => {
+   //inserto en evento, como estoy seguro, porque si o si se va mostar  
+      showCardDetails(lista.events.find(evento => evento._id == eventoId));      
+  
+    });
+
+}
+
+obtenerDatos();
+
+
+
+
+
