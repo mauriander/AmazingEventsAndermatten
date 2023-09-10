@@ -4,7 +4,7 @@
 
 # AmazingEvents
 
-Este repositorio contiene un sistema de gestión de eventos que te permite ver eventos pasados y futuros, posee un formulario de contacto, y te permite acceder a estadísticas relacionadas con los eventos. Además, puedes obtener detalles específicos de cada evento.
+Este repositorio contiene un sistema de gestión de eventos que te permite ver eventos pasados y futuros, posee un formulario de contacto, y te permite acceder a estadísticas relacionadas con los eventos. Además, puedes obtener detalles específicos de cada evento. Donde los datos son provenientes de la url = "https://mindhub-xj03.onrender.com/api/amazing" y los componentes del repositorio son dinamicos.
 
 ### Past Events
 
@@ -39,3 +39,13 @@ La pagina "Details", el cual podras acceder mediante la opcion 'Ver Mas' que pos
 - **Precio**
 
 ---
+
+### Caracteristicas
+
+Este proyecto fue desarrolado por Mauricio Andermatten con las herramientas de JavaScript, CSS, HTML y Boostrap.
+
+- Se genero una interfaz intuitiva y amigable donde prevalecen los colores oscuros esta eleccion se debe a que los colores oscuros emiten una luz azul mucho menos dañina, y reducen la fatiga ocular.
+- El usuario puede navegar por las páginas de UPCOMING, PAST and HOME para visualizar los eventos.
+- El usuario podra interactuar en las páginas aplicando filtros, buscando en la barra busqueda o ambas. En caso de no obtener resultados se mostrara un mensaje indicandolo.
+- El usuario podra acceder a las estadisticas, las cuales estan ordenadas alfebeticamente.
+- El usuario contara con la opcion de poder comunicarse a través del formulacion de contacto donde debera ingresar el NOMBRE, MAIL y un MENSAJE.
