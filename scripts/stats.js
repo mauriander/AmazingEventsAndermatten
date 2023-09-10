@@ -1,15 +1,15 @@
 const url = "https://mindhub-xj03.onrender.com/api/amazing";
-datos=[];
+datos = [];
 async function obtenerDatos() {
   await fetch(url)
     .then((response) => response.json())
     .then((lista) => {
       //Hacer calculos aca
       ///llamara las funciones de calculos
-        datos=lista;
+      datos = lista;
       showStatsE(lista.events);
-      showStatsUE(lista)
-     showStatsPE(lista)
+      showStatsUE(lista);
+      showStatsPE(lista);
     });
 }
 
@@ -35,9 +35,11 @@ function highestassistance(list) {
         //Guardo el evento para poder mostrar los dos,
         eventoWithMaxAttendance = evento;
       }
-    }  }
-return eventoWithMaxAttendance ? (eventoWithMaxAttendance.name + " (" + maxAttendace + "%)") :  ("No results available");
- 
+    }
+  }
+  return eventoWithMaxAttendance
+    ? eventoWithMaxAttendance.name + " (" + maxAttendace + "%)"
+    : "No results available";
 }
 // function highestassistance(list){
 //    ////ASIGNO EL VALOR MINIMO QUE VIENE DEL PORCENTAJE EN ESTE CASO PUEDE ASSISTANCE O ESTIMATE PORQUE ES DE TODOS LOS EVENTOS
@@ -59,9 +61,11 @@ function lowestassistance(list) {
         //Guardo el evento para poder mostrar los dos,tanto nombre como porcentaje
         eventoWithMinAttendance = evento;
       }
-    }  }
-return eventoWithMinAttendance ? (eventoWithMinAttendance.name + " (" + minAttendace + "%)") :  ("No results available");
-
+    }
+  }
+  return eventoWithMinAttendance
+    ? eventoWithMinAttendance.name + " (" + minAttendace + "%)"
+    : "No results available";
 }
 
 function largerassistance(list) {
@@ -73,34 +77,46 @@ function largerassistance(list) {
 }
 
 function showStatsUE(list) {
- // let table = document.getElementById("tableUpcoming")
+  // let table = document.getElementById("tableUpcoming")
   let tbody = document.getElementById("tbodyUpcoming");
   //guuurado los datos aca, es la misma funcion que upcoming
-  let upcomingEvent = datos.events.filter((element) => Date.parse(element.date) > Date.parse(list.currentDate));
+  let upcomingEvent = datos.events.filter(
+    (element) => Date.parse(element.date) > Date.parse(list.currentDate)
+  );
   //divido por categorias
   let categories = categoriesList(upcomingEvent.sort());
   let row = "";
   categories.forEach((category) => {
-//filteredEventsrevenues
-    let filteredEventsr = upcomingEvent.filter(event => event.category === category);
+    //filteredEventsrevenues
+    let filteredEventsr = upcomingEvent.filter(
+      (event) => event.category === category
+    );
     let revenues = filteredEventsr.reduce((total, event) => {
- return total + ((event.estimate) * event.price)
-}, 0);
-//console.log('revenues'+revenues);
-//filteredEventspercentage
-let filteredEventsp = upcomingEvent.filter(event => event.category === category);
-let totalAssistance = filteredEventsp.reduce((acc, event) => acc + (event.estimate), 0);
-let totalCapacity = filteredEventsp.reduce((acc, event) => acc + event.capacity, 0);
-let percentage = ((totalAssistance / totalCapacity) * 100).toFixed(2);
-        row += `<tr>
+      return total + event.estimate * event.price;
+    }, 0);
+    //console.log('revenues'+revenues);
+    //filteredEventspercentage
+    let filteredEventsp = upcomingEvent.filter(
+      (event) => event.category === category
+    );
+    let totalAssistance = filteredEventsp.reduce(
+      (acc, event) => acc + event.estimate,
+      0
+    );
+    let totalCapacity = filteredEventsp.reduce(
+      (acc, event) => acc + event.capacity,
+      0
+    );
+    let percentage = ((totalAssistance / totalCapacity) * 100).toFixed(2);
+    row += `<tr>
           <td>${category}</td>
           <td>$${revenues}</td>
           <td>${percentage}%</td>
       </tr>`;
-  })
+  });
   tbody.innerHTML = row;
 }
-function categoriesList(list){
+function categoriesList(list) {
   let categories = [];
   list.forEach((element) => {
     categories.push(element.category);
@@ -110,31 +126,42 @@ function categoriesList(list){
   return categories;
 }
 
-
 function showStatsPE(list) {
   //let table = document.getElementById("tablePast")
   let tbody = document.getElementById("tbodyPast");
-  let pastEvent = list.events.filter((element) => Date.parse(element.date) < Date.parse(list.currentDate));
-  
+  let pastEvent = list.events.filter(
+    (element) => Date.parse(element.date) < Date.parse(list.currentDate)
+  );
+
   let categories = categoriesList(pastEvent);
   let row = "";
   categories.forEach((category) => {
     //revenues
-    let filteredEventsr = pastEvent.filter(event => event.category === category);
+    let filteredEventsr = pastEvent.filter(
+      (event) => event.category === category
+    );
     let revenues = filteredEventsr.reduce((total, event) => {
- return total + ( event.assistance * event.price)
-}, 0);
-//
-let filteredEventsp = pastEvent.filter(event => event.category === category);
-let totalAssistance = filteredEventsp.reduce((acc, event) => acc + (event.assistance), 0);
-let totalCapacity = filteredEventsp.reduce((acc, event) => acc + event.capacity, 0);
-let percentage = ((totalAssistance / totalCapacity) * 100).toFixed(2);
+      return total + event.assistance * event.price;
+    }, 0);
+    //
+    let filteredEventsp = pastEvent.filter(
+      (event) => event.category === category
+    );
+    let totalAssistance = filteredEventsp.reduce(
+      (acc, event) => acc + event.assistance,
+      0
+    );
+    let totalCapacity = filteredEventsp.reduce(
+      (acc, event) => acc + event.capacity,
+      0
+    );
+    let percentage = ((totalAssistance / totalCapacity) * 100).toFixed(2);
 
-        row += `<tr>
+    row += `<tr>
           <td>${category}</td>
           <td>$${revenues}</td>
           <td>${percentage}%</td>
       </tr>`;
-  })
+  });
   tbody.innerHTML = row;
 }

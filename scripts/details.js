@@ -1,12 +1,12 @@
-function showCardDetails(evento){
+function showCardDetails(evento) {
   let container = document.getElementById("cardDetails");
   let card = "";
-  
-  if(evento.assistance == undefined){
-evento.assistance="-";
-   } else {
-     evento.estimate="-";
-    }
+
+  if (evento.assistance == undefined) {
+    evento.assistance = "-";
+  } else {
+    evento.estimate = "-";
+  }
   card = `<div class="card mb-3 p-5" style="max-width: 100%">
             <div class="row g-0">
             
@@ -32,11 +32,11 @@ evento.assistance="-";
         </div>
       </div>`;
   container.innerHTML = card;
-};
+}
 
 // // pracitcamente filmina 6 y video
 const params = new URLSearchParams(window.location.search);
-const eventoId = params.get('id');
+const eventoId = params.get("id");
 //inserto en evento, como estoy seguro, porque si o si se va mostar
 //const evento = data.events.find(evento => evento._id == eventoId);
 
@@ -45,16 +45,9 @@ async function obtenerDatos() {
   await fetch(url)
     .then((response) => response.json())
     .then((lista) => {
-   //inserto en evento, como estoy seguro, porque si o si se va mostar  
-      showCardDetails(lista.events.find(evento => evento._id == eventoId));      
-  
+      //inserto en evento, como estoy seguro, porque si o si se va mostar
+      showCardDetails(lista.events.find((evento) => evento._id == eventoId));
     });
-
 }
 
 obtenerDatos();
-
-
-
-
-

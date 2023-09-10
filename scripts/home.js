@@ -7,24 +7,21 @@ async function obtenerDatos() {
     .then((response) => response.json())
     .then((lista) => {
       //showcards
-       showCards(lista.events);
-       //showfilters
-       showCheckbox(categoriesList(lista));
-       //Search
-searchInput.addEventListener("input", () => {
-  finalFilter(lista.events);
-});
-  //Multiples check
-       checkboxSection.addEventListener("change", () => {
-  finalFilter(lista.events);
-});
-  
+      showCards(lista.events);
+      //showfilters
+      showCheckbox(categoriesList(lista));
+      //Search
+      searchInput.addEventListener("input", () => {
+        finalFilter(lista.events);
+      });
+      //Multiples check
+      checkboxSection.addEventListener("change", () => {
+        finalFilter(lista.events);
+      });
     });
-
 }
 
 obtenerDatos();
-
 
 // datalist=fetch(url)
 //  .then(response => response.json())
@@ -32,7 +29,6 @@ obtenerDatos();
 //                /// console.log(lista);
 //               return lista
 //               });
-
 
 function filterSearch(list, texto) {
   //Necesito que devuelva un return para trabajar con esa info

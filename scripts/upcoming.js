@@ -1,11 +1,11 @@
-
-function upcomingE(list){
-  let upcomingEvent = list.events.filter((element) => Date.parse(element.date) > Date.parse(list.currentDate));
+function upcomingE(list) {
+  let upcomingEvent = list.events.filter(
+    (element) => Date.parse(element.date) > Date.parse(list.currentDate)
+  );
   return upcomingEvent;
-};
+}
 
 let searchInput = document.getElementById("searchInput");
-
 
 const url = "https://mindhub-xj03.onrender.com/api/amazing";
 
@@ -14,27 +14,21 @@ async function obtenerDatos() {
     .then((response) => response.json())
     .then((lista) => {
       //showcards
-  showCards(upcomingE(lista));
-       //showfilters
-       showCheckbox(categoriesList(upcomingE(lista)));
-       //Search
-searchInput.addEventListener("input", () => {
-  finalFilter(upcomingE(lista));
-});
-  //Multiples check
-       checkboxSection.addEventListener("change", () => {
-  finalFilter(upcomingE(lista));
-});
-
-  
+      showCards(upcomingE(lista));
+      //showfilters
+      showCheckbox(categoriesList(upcomingE(lista)));
+      //Search
+      searchInput.addEventListener("input", () => {
+        finalFilter(upcomingE(lista));
+      });
+      //Multiples check
+      checkboxSection.addEventListener("change", () => {
+        finalFilter(upcomingE(lista));
+      });
     });
-
 }
 
 obtenerDatos();
-
-
-
 
 function filterSearch(list, texto) {
   //Necesito que devuelva un return para trabajar con esa info
@@ -43,7 +37,6 @@ function filterSearch(list, texto) {
   );
   return filteredArray;
 }
-
 
 function showCards(list) {
   if (list.length == 0) {
@@ -84,7 +77,6 @@ function showCards(list) {
 
 let checkboxSection = document.getElementById("checkboxSection");
 
-
 //Creo la lista de las categorias que luego seran checkbox
 function categoriesList(list) {
   let categories = [];
@@ -93,16 +85,16 @@ function categoriesList(list) {
     categories.push(element.category.toUpperCase());
   });
   categories = Array.from(new Set(categories));
-   return categories.sort();
+  return categories.sort();
 }
 
-function showCheckbox(list){
+function showCheckbox(list) {
   let checkboxes = "";
-  list.forEach((category) => { //reemplazar data por list
-    checkboxes += 
-    `<p><input type="checkbox" class="col-md-auto" id="${category}"  value="${category}">
+  list.forEach((category) => {
+    //reemplazar data por list
+    checkboxes += `<p><input type="checkbox" class="col-md-auto" id="${category}"  value="${category}">
     <label for="${category}">${category} &nbsp&nbsp </label>
-    </p>`
+    </p>`;
   });
   //nbsp no es buena practica pero quedo como resolucion provisoria
   checkboxSection.innerHTML = checkboxes;
@@ -113,28 +105,28 @@ function showCheckbox(list){
 
 ///filtro by checkbox le paso una lista, la recorro
 
-function filterByCheckbox(list){
+function filterByCheckbox(list) {
   let checkbox = document.querySelectorAll("input[type='checkbox']");
   let checkboxlist = Array.from(checkbox);
   let checkSelected = checkboxlist.filter((check) => check.checked);
   if (checkSelected.length == 0) {
-      return list;
+    return list;
   }
   let categories = checkSelected.map((check) => check.value.toUpperCase());
-  let filteredList = list.filter((element) => categories.includes(element.category.toUpperCase()));
+  let filteredList = list.filter((element) =>
+    categories.includes(element.category.toUpperCase())
+  );
   return filteredList;
 }
 //////filtro final
 function finalFilter(list) {
   //llamo al filto1
   // let filro1=showCards(filterSearch(list, searchInput.value));
-// siempmre trabajo con arrays, asi que a un array lo filto y al array restante lo vuelvo a filtra
-let filtrob=filterSearch(list, searchInput.value);
-let filtroc=filterByCheckbox(filtrob);
-showCards(filtroc);
-
+  // siempmre trabajo con arrays, asi que a un array lo filto y al array restante lo vuelvo a filtra
+  let filtrob = filterSearch(list, searchInput.value);
+  let filtroc = filterByCheckbox(filtrob);
+  showCards(filtroc);
 }
-
 
 //aGREGO ESTA LINEA PORQUE NO FILTRABA AL CLICKEAR
 // checkboxSection.addEventListener('change', () => {

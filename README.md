@@ -1,23 +1,41 @@
 # AmazingEventsAndermatten
 
-Amazing eventes cuenta con 6 HTML
--Home
--Past Events
--Upcoming Events
--Contact
--Stats
--Details
+![HOME](./img/capturas/capturahome.png)
 
-Past y Upcoming Events, muestran respectivamente los eventos que van a transcurrir y aquellos que ya finalizaron.
-Contact, posee un formulario de contacto donde es posible dejar un mensaje
-Stats es la pestaña donde puedes encontrar las estadisticas relacionada a cada evento.(\*En proceso)
-En Details podemos visualizar los eventos con sus detalles;
-Cada evento posee:
-NAME
-DATE
-DESCRIPTION
-CATEGORY
-PLACE
-CAPACITY
-ASSISTANCE
-PRICE
+# AmazingEvents
+
+Este repositorio contiene un sistema de gestión de eventos que te permite ver eventos pasados y futuros, posee un formulario de contacto, y te permite acceder a estadísticas relacionadas con los eventos. Además, puedes obtener detalles específicos de cada evento.
+
+### Past Events
+
+En la pestaña "Past Events", encontrarás una lista de eventos que ya han finalizado, junto con sus detalles.
+
+### Upcoming Events
+
+La sección "Upcoming Events" muestra los eventos que están programados para el futuro. Puedes consultar los detalles de los eventos que aún no han tenido lugar.
+![HOME](./img/capturas/capturaupcoming.png)
+
+### Contact
+
+La pestaña "Contact" te permite ponerte en contacto con los organizadores de los eventos a través de un formulario de contacto. Si deseas hacer alguna pregunta o dejar un mensaje, esta es la opción.
+![HOME](./img/capturas/capturaform.png)
+
+### Stats
+
+En la sección "Stats", podrás acceder a estadísticas relacionadas con los eventos.
+![HOME](./img/capturas/capturastats.png)
+
+### Details
+
+La pagina "Details", el cual podras acceder mediante la opcion 'Ver Mas' que poseen las tarjetas y puedes visualizar los eventos junto con sus detalles clave, que incluyen:
+
+- **Nombre del Evento**
+- **Fecha**
+- **Descripción**
+- **Categoría**
+- **Lugar**
+- **Capacidad**
+- **Asistencia Actual**
+- **Precio**
+
+---
