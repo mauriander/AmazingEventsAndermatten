@@ -86,7 +86,7 @@ function categoriesList(list) {
     categories.push(element.category.toUpperCase());
   });
   categories = Array.from(new Set(categories));
-   return categories;
+   return categories.sort();
 }
 
 function showCheckbox(list){

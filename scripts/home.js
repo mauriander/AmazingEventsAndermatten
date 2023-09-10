@@ -58,7 +58,7 @@ function showCards(list) {
       </div>
       <div class="footer-card d-flex">
         <P>Precio $${element.price}</P>
-        <a href="./details.html?id=${element._id}" class="btn btn-see-more">Ver mas...</a>
+        <a href="./pages/details.html?id=${element._id}" class="btn btn-see-more">Ver mas...</a>
       </div>
       </div>`;
   });

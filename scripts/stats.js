@@ -31,7 +31,7 @@ function highestassistance(list) {
     if (!isNaN(evento.assistance)) {
       const percentage = (evento.assistance / evento.capacity) * 100;
       if (percentage > maxAttendace) {
-        maxAttendace = percentage;
+        maxAttendace = percentage.toFixed(2);
         //Guardo el evento para poder mostrar los dos,
         eventoWithMaxAttendance = evento;
       }
@@ -55,7 +55,7 @@ function lowestassistance(list) {
     if (!isNaN(evento.assistance)) {
       const percentage = (evento.assistance / evento.capacity) * 100;
       if (percentage < minAttendace) {
-        minAttendace = percentage;
+        minAttendace = percentage.toFixed(2);
         //Guardo el evento para poder mostrar los dos,tanto nombre como porcentaje
         eventoWithMinAttendance = evento;
       }
@@ -73,12 +73,12 @@ function largerassistance(list) {
 }
 
 function showStatsUE(list) {
-  let table = document.getElementById("tableUpcoming")
-  let tbody = table.querySelector("tbody");
+ // let table = document.getElementById("tableUpcoming")
+  let tbody = document.getElementById("tbodyUpcoming");
   //guuurado los datos aca, es la misma funcion que upcoming
   let upcomingEvent = datos.events.filter((element) => Date.parse(element.date) > Date.parse(list.currentDate));
   //divido por categorias
-  let categories = categoriesList(upcomingEvent);
+  let categories = categoriesList(upcomingEvent.sort());
   let row = "";
   categories.forEach((category) => {
 //filteredEventsrevenues
@@ -112,8 +112,8 @@ function categoriesList(list){
 
 
 function showStatsPE(list) {
-  let table = document.getElementById("tablePast")
-  let tbody = table.querySelector("tbody");
+  //let table = document.getElementById("tablePast")
+  let tbody = document.getElementById("tbodyPast");
   let pastEvent = list.events.filter((element) => Date.parse(element.date) < Date.parse(list.currentDate));
   
   let categories = categoriesList(pastEvent);
