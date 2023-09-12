@@ -19,6 +19,9 @@ body {
     rgba(7, 100, 119, 1)
   );
   background-repeat: repeat;
+  
+    display: flex;
+    flex-direction: column;
 }
 
 header {
@@ -29,11 +32,11 @@ header {
 }
 footer {
   background: linear-gradient(32deg, rgba(7, 100, 119, 1), rgba(2, 0, 36, 1));
-
-  margin-top: 8vh;
+margin-top: auto;
+color: #ff5f6d;
 }
 main {
-  min-height: 76vh;
+flex-grow: 1;
 }
 h1 {
   background: linear-gradient(0deg, #ff5f6d, #ffc371);
@@ -69,6 +72,7 @@ h1 {
 
 .footer-card {
   display: flex;
+  
   justify-content: space-around;
   margin-bottom: 0.5rem;
 }
@@ -98,9 +102,11 @@ th {
   text-align: center;
 }
 .img-details {
-  background-color: #fff;
+  background-color: transparent;
+  
   padding: 0.5rem;
 }
+
 
 .img-card-details {
   height: 100%;
@@ -116,4 +122,11 @@ th {
 .nav-link:hover {
   color: #d90368;
   opacity: 0.7;
+}
+
+.cardd{
+  background: linear-gradient(-45deg, rgba(7, 100, 119, 1), rgba(2, 0, 36, 1));
+  color:white;
+  border: none;
+  font-weight: 600;
 }

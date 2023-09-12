@@ -7,14 +7,14 @@ function showCardDetails(evento) {
   } else {
     evento.estimate = "-";
   }
-  card = `<div class="card mb-3 p-5" style="max-width: 100%">
+  card = `<div class="cardd mb-3 p-0" style="max-width: 100%;">
             <div class="row g-0">
             
               <div class="col-md-6 align-self-center img-details">
                          <img src=${evento.image} class="img-fluid img-card-details rounded-5" alt=${evento.name}> 
               </div>
               
-              <div class="col-md-6 p-3">
+              <div class="col-md-6 p-5">
                 <div class="col-md-6 align-self-center">
                   <h5 class="card-title">${evento.name}</h5>
                   <div class="card-body-text">
